@@ -1,0 +1,70 @@
+name: "🌐 Submit a Domain"
+description: "Submit a new domain or extension proposal for the project"
+title: "🌐 [DOMAIN] - <Domain Name>"
+labels:
+  - "domain-proposal"
+body:
+  - type: input
+    id: domain_name
+    attributes:
+      label: "Domain Name"
+      description: "The name of the domain or extension you are proposing"
+      placeholder: "e.g., authentication, database, UI-theme"
+    validations:
+      required: true
+  - type: input
+    id: start_date
+    attributes:
+      label: "Start Date"
+      description: "Target or actual start date of development"
+      placeholder: "MM/DD/YYYY"
+    validations:
+      required: false
+  - type: textarea
+    id: implementation_pr
+    attributes:
+      label: "Implementation PR"
+      description: "Associated pull request link or ID"
+      placeholder: "#PR-ID"
+    validations:
+      required: false
+  - type: textarea
+    id: reference_issues
+    attributes:
+      label: "Reference Issues"
+      description: "Related or blocking issues"
+      placeholder: "#Issue-IDs"
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Domain Summary"
+      description: "Provide a brief explanation of what this domain does and its scope"
+      placeholder: "Describe the core purpose of this domain..."
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Basic Usage Example"
+      description: "Show a quick code snippet or example of how this domain will be used"
+      placeholder: "Provide a basic example..."
+    validations:
+      required: true
+  - type: textarea
+    id: drawbacks
+    attributes:
+      label: "Drawbacks & Trade-offs"
+      description: "What are the potential drawbacks, overhead, or impacts of adding this domain?"
+      placeholder: "Identify impacts objectively..."
+    validations:
+      required: true
+  - type: textarea
+    id: unresolved_question
+    attributes:
+      label: "Unresolved Questions"
+      description: "What design questions or edge cases still remain open?"
+      placeholder: "List any open questions..."
+    validations:
+      required: false

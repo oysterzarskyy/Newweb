@@ -1,0 +1,12 @@
+{
+  "domain": "myreld.ifiredthizcorecti.nw",
+  "is-reg": true,
+  "domains-registered-past": {
+    "1": ".it.now",
+    "2": ".azerty.kb",
+    "3": ".elsa.nw",
+    "4": ".az-kngdf.sv", // LOGS: registered as a server (.sv), not a regular-use extension
+    "5": ".pages-free.it.now" // expired premium for it.now (all examples)
+  },
+  "domain-end": ".nw"
+}

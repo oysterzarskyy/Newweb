@@ -1,0 +1,7 @@
+{
+  "name": "myrelativedog",
+  "domain": "myreld.ifiredthizcorecti.nw", // if you'd like you can use the .nw (newweb international) domain!
+  /* second json file "domain.json" registers the domain with the .nw domain or any domain! */
+  "is-apikey": false
+  // else if api key, visit the "mycousindog" folder or "1x" folder
+}

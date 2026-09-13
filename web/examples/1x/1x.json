@@ -1,0 +1,14 @@
+{
+  "name": "1x",
+  "domain": "hi-im.1x.net",
+  /*
+  
+  THE API KEYS DONT NEED A DOMAIN JSON FILE.
+  
+  */
+  "is-apikey": true,
+  "apis": {
+    "api-ghp": "abcdefgwhatever",
+    "api-vercel": "vercelapikeyhere" // idk abt vercel twin
+  }
+}
