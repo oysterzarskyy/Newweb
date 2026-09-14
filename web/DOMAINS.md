@@ -21,7 +21,7 @@
 
 ## Submission Templates
 
-If you would like to request a new domain or extension addition in the Issues tab, please use one of the templates below.
+If you would like to request a new domain or extension addition in the PR tab which is by cloning this, and editing either the /web or /ext folder depending on your request. which will or can be changed if [either](RULES.md), please use one of the templates below.
 
 ### Option 1: Standard Request
 
