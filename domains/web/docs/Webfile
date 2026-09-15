@@ -1,0 +1,3 @@
+runf = newweb --check --no-dns sub2.malic3n.nw -eier docs.newweb.nwe -eier status.test.nw --no-setup
+if fine:
+newweb run html2dotgun

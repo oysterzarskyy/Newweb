@@ -1,0 +1,7 @@
+// custom .com prefix for websites
+{
+  "name": ".com",
+  "usage": "commercial", // list will be commercial, net, ai, etc. added by cloning repo
+  "example": "example.com" // examples will be optional
+  // idk if domain will be free
+}

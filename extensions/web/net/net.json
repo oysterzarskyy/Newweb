@@ -1,0 +1,6 @@
+// custom .net prefix for websites
+{
+  "name": ".net",
+  "usage": "net", // list will be commercial, net, ai, etc. added by cloning repo
+  "example": "example.net" // examples will be optional
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Docs",
+  "domain": "docs.newweb.nwe",
+  "registers": [
+    {
+      "owner": "oysterzarskyy",
+      "use-dns": "false"
+    }
+  ]
+}
