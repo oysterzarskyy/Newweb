@@ -1,0 +1,21 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+    - cron: "30 1 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest # ubuntu
+    permissions: # Write all Issues/PRs
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v5
+        with:
+          days-before-stale: 60
+          days-before-close: 7
+          stale-issue-message: "Hi there! This issue has been marked as stale. Don't worry. Our maintainers have a lot on their plates right now, and we will take a look at what we can do soon as possible!"
+          stale-pr-message: "Hi there! This pull request has been marked as stale because it hasn't received updates recently. Our maintainers might be busy or reviewing other PRs, but we appreciate your contribution and will get back to it soon."
+          stale-issue-label: "stale"
+          stale-pr-label: "stale"
