@@ -1,13 +1,9 @@
-# This is the Newweb Code Owners file. All changes, whether they are fixable or not, are subject to approval by the owner. Newweb operates similarly to a new, free version of Google and other services, so please be cautious and do not break it, as there are actual websites running on this platform. However, since this is still a beta version, feel free to implement some tiny changes to improve functionality. Just ensure that these adjustments do not compromise the overall stability or integrity of the system. Every action can significantly impact users relying on the current setup for their online presence.
+# This is the Newweb Code Owners file. All changes, whether they are fixable or not, are subject to approval by the owner. Newweb operates similarly to a new, free version of Google and other services, so please be cautious and do not break it, as there are actual websites running on this platform. However, since this is still a beta version, feel free to implement some tiny changes to improve functionality. Just ensure that these adjustments do not compromise the overall stability or integrity of the system. Every action can significantly impact users relying on the current setup for their online presence
 
 * @oysterzarskyy @javas-afraid
-# these are the main owners of the repo, if one gets banned for some sort, it will be removed.
 
 *.md @oysterzarskyy
 *.py @oysterzarskyy @javas-afraid
-# design helpers up here and technical fixers, so it is their duty
 
-*/cflare-deploy/.html @oysterzarskyy # cflare html
-*/cflare-deploy/.js @oysterzarskyy # cflare js
-
-# MORE SOON
+*/deploy/.html @oysterzarskyy # cflare html
+*/deploy/.js @oysterzarskyy # cflare js
