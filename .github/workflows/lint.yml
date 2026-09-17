@@ -24,15 +24,15 @@ jobs:
         id: python-version
         run: |
           if [ -f .python-version ]; then
-            echo "VERSION=(cat .python-version)" >> GITHUB_OUTPUT
+            echo "VERSION=$(cat .python-version)" >> $GITHUB_OUTPUT
           else
-            echo "VERSION=3.10" >> \$GITHUB_OUTPUT
+            echo "VERSION=3.14.6" >> $GITHUB_OUTPUT
           fi
-
+      # yo this a comment!!!
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: \${{ steps.python-version.outputs.VERSION }}
+          python-version: ${{ steps.python-version.outputs.VERSION }}
 
       - name: Run lint script
         id: run-lint
@@ -42,32 +42,32 @@ jobs:
       - name: Create Issue on Failure
         if: steps.run-lint.outcome == 'failure'
         env:
-          GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Read the error log file into a variable
-          ERROR_REPORT=\$(cat lint_errors.log)
+          ERROR_REPORT=$(cat lint_errors.log)
 
           # Construct a dynamic issue body
-          ISSUE_BODY=\$(cat <<EOF
+          ISSUE_BODY=$(cat <<EOF
           The pure-Python linting check failed during the workflow run.
 
           ### 🚨 Discovered Code Errors:
-          \$ERROR_REPORT
+          $ERROR_REPORT
 
-          _Run triggered by: @\${{ github.actor }} on branch \`${{ github.ref_name }}\`._
+          _Run triggered by: @${{ github.actor }} on branch `${{ github.ref_name }}`._
           EOF
           )
 
           # Generate localized label names based on GitHub Run variables
-          LABEL_GH="gh-\${{ github.run_number }}"
-          LABEL_BUG="bug-\${{ github.run_attempt }}"
+          LABEL_GH="gh-${{ github.run_number }}"
+          LABEL_BUG="bug-${{ github.run_attempt }}"
 
           # Use GitHub CLI to create the issue with the specific labels
           gh issue create \
-            --title "⚠️ Linting Failed on \${{ github.ref_name }}" \
-            --body "\$ISSUE_BODY" \
-            --label "\$LABEL_GH" \
-            --label "\$LABEL_BUG"
+            --title "⚠️ Linting Failed on ${{ github.ref_name }}" \
+            --body "$ISSUE_BODY" \
+            --label "$LABEL_GH" \
+            --label "$LABEL_BUG"
 
           # Hard fail the step so the action logs reflect the build failure
           exit 1
