@@ -1,14 +1,268 @@
-/*
-Dont Use this for scamming purposes!
-*/
-
-:root {
-  font-family:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-color: cornsilk;
+/* ==========================================================================
+   1. STRUCTURAL RESET & REPEATING PATTERN WITH 50% TRANSPARENCY
+   ========================================================================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.main-article {
-  background-color: antiquewhite;
+.bg-pattern-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* The repeating pattern with 50% opacity/transparency */
+.bg-pattern-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("images/Untitled.png");
+  background-repeat: repeat;
+  background-size: 100px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* ==========================================================================
+   2. CLEAN NOTEBOOK CARD WITH PAPER TEAR & TAPE DECORATION
+   ========================================================================== */
+.notebook-card {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 45px 35px 50px 35px;
+
+  background-color: #fbf9f1;
+
+  /* Horizontal blue notebook paper rules */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 95%,
+    rgba(130, 180, 210, 0.6) 95%,
+    rgba(130, 180, 210, 0.6) 100%
+  );
+  background-size: 100% 30px;
+
+  box-shadow: none;
+  border-top: 1px solid #d4ceb4;
+  border-left: 1px solid #d4ceb4;
+  border-right: 1px solid #d4ceb4;
+  border-bottom: none;
+  transform: rotate(-0.5deg);
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Realistic paper tear edge using an SVG mask on the bottom */
+.notebook-card::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background-color: #fbf9f1;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 20' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L10,15 L25,3 L40,18 L55,5 L70,16 L85,2 L100,19 L115,4 L130,17 L145,1 L160,18 L175,6 L190,15 L205,3 L220,19 L235,5 L250,17 L265,2 L280,18 L295,4 L310,16 L325,1 L340,19 L355,5 L370,17 L385,2 L400,18 L415,4 L430,16 L445,2 L460,19 L475,5 L490,15 L500,0 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 20' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L10,15 L25,3 L40,18 L55,5 L70,16 L85,2 L100,19 L115,4 L130,17 L145,1 L160,18 L175,6 L190,15 L205,3 L220,19 L235,5 L250,17 L265,2 L280,18 L295,4 L310,16 L325,1 L340,19 L355,5 L370,17 L385,2 L400,18 L415,4 L430,16 L445,2 L460,19 L475,5 L490,15 L500,0 Z' fill='black'/%3E%3C/svg%3E");
+  border-bottom: 1px solid #d4ceb4;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & DECORATIVE ELEMENTS
+   ========================================================================== */
+.notebook-header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.notebook-header::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 70px;
+  height: 22px;
+  background-color: rgba(235, 228, 204, 0.65);
+  border: 1px dashed rgba(180, 170, 140, 0.4);
+  z-index: 2;
+}
+
+.notebook-header img {
+  display: block;
+  margin: 0 auto 15px auto;
+  border: 2px solid #2b2b2b;
+  padding: 4px;
+  background: #fff;
+  transform: rotate(2deg);
+}
+
+.notebook-header h1 {
+  font-family:
+    "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1a1a1a;
+  line-height: 1.2;
+
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #1a1a1a;
+  width: 0;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-cursor {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #1a1a1a;
+  }
+}
+
+p {
+  font-family:
+    "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+}
+
+.notebook-card p {
+  line-height: 30px;
+  margin: 0;
+  padding-bottom: 30px;
+  color: #2b2b2b;
+}
+
+.green-happy {
+  color: #40a845;
+  font-style: italic;
+  position: relative;
+}
+
+.green-happy::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 22px;
+  width: 85px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15' preserveAspectRatio='none'%3E%3Cpath d='M 2,10 Q 25,2 48,10 T 98,8' fill='none' stroke='%2340a845' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.teacher-circled-link {
+  position: relative;
+  color: #b71c1c;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' preserveAspectRatio='none'%3E%3Cpath d='M 8,30 C 5,8 95,5 95,30 C 95,55 8,55 5,32 C 4,15 40,12 80,15' fill='none' stroke='%23b71c1c' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   4. WOODEN-BOARD BARRICADED DOOR SKETCH
+   ========================================================================== */
+.door-barricade {
+  margin: 25px auto 10px auto;
+  width: 120px;
+  height: 150px;
+  background-color: #d8cdb2; /* Door frame / background recess */
+  border: 3px solid #2b2b2b;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
+  transform: rotate(1deg);
+}
+
+/* Wooden Plank 1 */
+.door-barricade::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -10px;
+  width: 140px;
+  height: 28px;
+  background-color: #8c5830;
+  border: 2px solid #2b2b2b;
+  transform: rotate(-6deg);
+  box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Wooden Plank 2 */
+.door-barricade::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: -10px;
+  width: 140px;
+  height: 26px;
+  background-color: #734522;
+  border: 2px solid #2b2b2b;
+  transform: rotate(8deg);
+  box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   ADDITION FOR SUBTITLE (H5)
+   ========================================================================== */
+.notebook-header h5,
+h6 {
+  font-family:
+    "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+  font-size: 0.95rem;
+  font-weight: normal;
+  font-style: italic;
+  color: #555555;
+  margin: 10px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+h6 {
+  font-family:
+    "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+  font-size: 0.95rem;
+  font-weight: normal;
+  font-style: italic;
+  color: #555555;
+  margin: 10px 0 0 0;
+  letter-spacing: 0.5px;
+  text-align: center;
 }

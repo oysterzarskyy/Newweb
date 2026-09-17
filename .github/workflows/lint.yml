@@ -1,0 +1,32 @@
+name: "lint"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read Python version
+        id: python-version
+        run: |
+          if [ -f .python-version ]; then
+            echo "VERSION=$(cat .python-version)" >> $GITHUB_OUTPUT
+          else
+            # Fallback default version if no version file exists
+            echo "VERSION=3.10" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ steps.python-version.outputs.VERSION }}
+
+      - name: Run lint script
+        run: python scripts/lint.py
